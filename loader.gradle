@@ -77,7 +77,6 @@ def replaceProperties = [
         mod_license: mod_license,
         minecraft_version: minecraft_version,
         fabric_loader_version: fabric_loader_version,
-        fabric_api_version: fabric_api_version,
         repository_url: repository_url,
         neo_version_range: neo_version_range,
         neo_version: neo_version,
@@ -128,8 +127,6 @@ architectury {
 
 dependencies {
     // thanks sodium for adding neoforge support, very cool :>
-    def mcVersion = rootProject.hasProperty('common_networking_mc_version') ? "${common_networking_mc_version}" : "${minecraft_version}"
-    modApi(include("mysticdrew:common-networking-${loomPlatform}:${common_networking_version}-${mcVersion}"))
 
     if(!disable_runtimes.toBoolean()) {
         modRuntimeOnly("mezz.jei:jei-${minecraft_version}-${loomPlatform}:${jei_version}")
@@ -142,10 +139,6 @@ dependencies {
         }
     }
 
-    if(loomPlatform != 'forge'){
-        modApi(include("fuzs.forgeconfigapiport:forgeconfigapiport-${loomPlatform}:${forge_config_api_port_version}"))
-    }
-
     switch(loomPlatform){
         case 'forge':
             forge "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
@@ -156,7 +149,6 @@ dependencies {
             break
         case 'fabric':
             modImplementation "net.fabricmc:fabric-loader:${fabric_loader_version}"
-            modApi "net.fabricmc.fabric-api:fabric-api:${fabric_api_version}+${minecraft_version}"
             break
         case 'neoforge':
             neoForge "net.neoforged:neoforge:${neo_version}"
@@ -173,17 +165,7 @@ publishMods {
     modLoaders.add("${loomPlatform}")
     type = STABLE
     displayName = "[${projectName}] ${rootProject.minecraft_version} - ${rootProject.mod_version}"
-//    relations {
-//        includes {
-//            curseforge="common-network"
-//            modrinth="common-network"
-//        }
-//        includes {
-//            curseforge="forge-config-api-port-fabric"
-//            modrinth="forge-config-api-port"
-//        }
-//    }
-//
+
     var CURSE_API_KEY = project.findProperty("curseforge_token") ?: System.getenv("curseforge_token") ?: ""
     if (CURSE_API_KEY != "") {
         curseforge {
