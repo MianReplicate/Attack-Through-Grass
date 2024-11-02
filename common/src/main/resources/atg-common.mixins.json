@@ -1,10 +1,10 @@
 {
   "required": true,
   "minVersion": "0.8",
-  "package": "mc.mian.templatemod.mixin",
+  "package": "mc.mian.atg.mixin",
   "compatibilityLevel": "JAVA_${java_version}",
   "mixins": [
-    "TitleScreenMixin"
+    "MinecraftMixin"
   ],
   "client": [
   ],
