@@ -1,4 +1,3 @@
-# Version 2.0.0
+# Version 2.0.1
 ## Changes:
-- Ported to Forge/NeoForge & 1.21.3
-- Hit detection should be more reliable on hitting mobs through grass
+- Fixed the mod from requiring to be on the server in order to join. It is now **actually** client side.
