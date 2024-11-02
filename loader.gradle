@@ -165,8 +165,8 @@ publishMods {
     changelog = new File("${rootProject.projectDir}/changelog.md").text
     modLoaders.add("${loomPlatform}")
     type = STABLE
-    def minimum_mc_version = rootProject.hasProperty('minimum_mc_version') ? rootProject.minimum_minecraft_version : null
-    def toDisplay = rootProject.hasProperty('minimum_mc_version') ? "${minimum_mc_version}-${rootProject.minecraft_version}" : "${rootProject.minecraft_version}"
+    def minimum_mc_version = rootProject.hasProperty('minimum_minecraft_version') ? rootProject.minimum_minecraft_version : null
+    def toDisplay = minimum_mc_version ? "${minimum_mc_version}-${rootProject.minecraft_version}" : "${rootProject.minecraft_version}"
     displayName = "[${projectName}] ${toDisplay} - ${rootProject.mod_version}"
 
     var CURSE_API_KEY = project.findProperty("curseforge_token") ?: System.getenv("curseforge_token") ?: ""
@@ -176,10 +176,10 @@ publishMods {
             projectId = "${rootProject.curseforge_id}"
             minecraftVersions.add("${rootProject.minecraft_version}")
             if(minimum_mc_version != null){
-                minecraftVersionRange {
-                    start = "${minimum_mc_version}"
-                    end = "${minecraft_version}"
-                }
+//                minecraftVersionRange {
+//                    start = "${minimum_mc_version}"
+//                    end = "${minecraft_version}"
+//                }
             }
         }
     }
