@@ -81,7 +81,7 @@ public abstract class MinecraftMixin {
     }
 
     @Inject(method = "startAttack", at = @At(value = "INVOKE", shift = At.Shift.BEFORE, target = "Lnet/minecraft/world/phys/HitResult;getType()Lnet/minecraft/world/phys/HitResult$Type;"))
-    private void injectDoAttackForCancelling(CallbackInfoReturnable<Boolean> cir) {
+    private void swapHitResult(CallbackInfoReturnable<Boolean> cir) {
         if(hitResult.getType() == HitResult.Type.BLOCK){
             BlockPos blockPos = BlockPos.containing(hitResult.getLocation());
             if(player.level().getBlockState(blockPos).getCollisionShape(player.level(), blockPos).isEmpty()){
