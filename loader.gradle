@@ -58,7 +58,7 @@ def replaceProperties = [mod_id             : mod_id, mod_name: mod_name, mod_ve
                          mod_license        : mod_license,
                          minecraft_version  : minecraft_version, fabric_loader_version: fabric_loader_version,
                          repository_url: repository_url,
-                         forge_version_range: forge_version_range, forge_version: forge_version, forge_loader_version_range: forge_loader_version_range,
+                         forge_version: forge_version, forge_loader_version_range: forge_loader_version_range,
                          minimum_minecraft_version: minimum_minecraft_version
 ]
 processResources {
@@ -142,12 +142,6 @@ publishMods{
             accessToken = CURSE_API_KEY
             projectId = "${rootProject.curseforge_id}"
             minecraftVersions.add("${rootProject.minecraft_version}")
-            if(minimum_mc_version != null){
-//                minecraftVersionRange {
-//                    start = "${minimum_mc_version}"
-//                    end = "${minecraft_version}"
-//                }
-            }
         }
     }
 
@@ -157,7 +151,7 @@ publishMods{
             accessToken = MODRINTH_TOKEN
             projectId = "${rootProject.modrinth_id}"
             minecraftVersions.add("${rootProject.minecraft_version}")
-            if(minimum_mc_version != null){
+            if(minimum_mc_version != minecraft_version){
                 minecraftVersionRange {
                     start = "${minimum_mc_version}"
                     end = "${minecraft_version}"
