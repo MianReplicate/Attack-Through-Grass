@@ -13,14 +13,6 @@ authors = "${mod_authors}"
 
 description = "${mod_description}"
 
-#Neoforge dependency
-[[dependencies.${mod_id}]]
-modId = "neoforge"
-type = 'required'
-versionRange = "${neo_version_range}"
-ordering = "NONE"
-side = "CLIENT"
-
 #Minecraft dependency
 [[dependencies.${mod_id}]]
 modId = "minecraft"

@@ -1,3 +1,5 @@
-# Version 2.0.1
+# Version 2.0.2
 ## Changes:
-- Fixed the mod from requiring to be on the server in order to join. It is now **actually** client side.
+- Cleaned up mod internals
+- You are now less likely to break blocks now when attacking
+- Mod is now licensed under PolyForm Shield 1.0.0
