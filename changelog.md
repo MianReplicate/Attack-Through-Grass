@@ -1,4 +1,5 @@
-# Version 2.0.0
+# Version 2.0.2
 ## Changes:
-- Ported to Forge/NeoForge
-- Hit detection should be more reliable on hitting mobs through grass
+- Cleaned up mod internals
+- You are now less likely to break blocks now when attacking
+- Mod is now licensed under PolyForm Shield 1.0.0

@@ -1,8 +1,0 @@
-{
-  "block.templatemod.template_block": "Meowing Block",
-  "item.templatemod.template_item": "Meowing Disc",
-  "item.templatemod.template_item.desc": "Tanger - Scratch!",
-  "itemGroup.templatemod.template_mod": "Template Mod",
-  "templatemod.sound.fail": "no meow :<",
-  "templatemod.sound.meow": "MEOW!!"
-}
