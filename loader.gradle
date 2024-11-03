@@ -78,10 +78,8 @@ def replaceProperties = [
         minecraft_version: minecraft_version,
         fabric_loader_version: fabric_loader_version,
         repository_url: repository_url,
-        neo_version_range: neo_version_range,
         neo_version: neo_version,
         neo_loader_version_range: neo_loader_version_range,
-        forge_version_range: forge_version_range,
         forge_version: forge_version,
         forge_loader_version_range: forge_loader_version_range,
         minimum_minecraft_version: minimum_minecraft_version
