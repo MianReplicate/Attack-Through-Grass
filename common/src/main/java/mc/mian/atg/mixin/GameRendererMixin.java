@@ -15,7 +15,6 @@ import net.minecraft.client.renderer.GameRenderer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntitySelector;
-import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.ProjectileUtil;
 import net.minecraft.world.level.ClipContext;
@@ -54,16 +53,8 @@ public class GameRendererMixin {
             end,
             // bounding box
             new AABB(start, end),
-            // skip creative & spectator users lol
-            EntitySelector.NO_CREATIVE_OR_SPECTATOR
-                .and(e -> e != null
-                    // can be picked
-                    && e.isPickable()
-                    // is alive and isn't like a boat
-                    && e instanceof LivingEntity
-                    // is not a vehicle that the player is in
-                    && !attackThroughGrass$getAllVehicles(player).contains(e)
-                )
+            // ensure pickable (ignoring creative mode players) and is not a vehicle that the player is in
+            EntitySelector.NO_CREATIVE_OR_SPECTATOR.and(Entity::isPickable).and(e -> !attackThroughGrass$getAllVehicles(player).contains(e))
             );
             
         if (entityHitResult != null) {
@@ -72,11 +63,8 @@ public class GameRendererMixin {
           // try to pick a solid block between the player and the entity
 				  HitResult newResult = attackThroughGrass$pickUncolliding(player, enemyDistance);
           // replaces the current hit result with the entity hit result provided there is no solid blocks between
-				  if (newResult.getType() == HitResult.Type.MISS) {
+				  if (newResult.getType() == HitResult.Type.MISS)
 					  original = entityHitResult;
-            // make sure block does not break immediately after
-            minecraft.missTime = 10;
-          }
         }
       }
     }
