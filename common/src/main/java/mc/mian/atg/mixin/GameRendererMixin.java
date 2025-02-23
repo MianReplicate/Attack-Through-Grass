@@ -25,7 +25,7 @@ import net.minecraft.world.phys.Vec3;
 
 @Mixin(GameRenderer.class)
 public class GameRendererMixin {
-	@ModifyExpressionValue(method = "pick(F)V", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/renderer/GameRenderer;pick(Lnet/minecraft/world/entity/Entity;DDF)Lnet/minecraft/world/phys/HitResult;"))
+	@ModifyExpressionValue(method = "pick(F)V", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/Entity;pick(DFZ)Lnet/minecraft/world/phys/HitResult;"))
 	public HitResult modifyPickedHitResult(HitResult original, @Local(ordinal = 0) Entity entity, @Local(ordinal = 0, argsOnly = true) float f) {
     // Ensure the hit result qualifies to be changed
 		Minecraft minecraft = Minecraft.getInstance();
@@ -42,7 +42,7 @@ public class GameRendererMixin {
         // direction that player is facing
         Vec3 direction = player.getViewVector(1);
         // direction multiplied by entity interaction range which is then added to starting pos to get final entity pos
-        Vec3 end = start.add(direction.scale(player.entityInteractionRange()));
+        Vec3 end = start.add(direction.scale(Minecraft.getInstance().gameMode.getPickRange()));
 
         EntityHitResult entityHitResult = ProjectileUtil.getEntityHitResult(
             // the level of the player
