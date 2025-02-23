@@ -187,7 +187,6 @@ publishMods {
         modrinth {
             accessToken = MODRINTH_TOKEN
             projectId = "${rootProject.modrinth_id}"
-            minecraftVersions.add("${rootProject.minecraft_version}")
             if(minimum_mc_version != null){
                 minecraftVersionRange {
                     start = "${minimum_mc_version}"
@@ -195,6 +194,8 @@ publishMods {
 
                     includeSnapshots = true
                 }
+            } else {
+                minecraftVersions.add("${rootProject.minecraft_version}")
             }
         }
     }
