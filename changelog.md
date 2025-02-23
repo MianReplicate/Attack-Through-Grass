@@ -1,5 +1,3 @@
-# Version 2.0.2
+# Version 2.0.3
 ## Changes:
-- Cleaned up mod internals
-- You are now less likely to break blocks now when attacking
-- Mod is now licensed under PolyForm Shield 1.0.0
+- Fixed a bug relating to hitting through a solid block if a transparent block was in front
