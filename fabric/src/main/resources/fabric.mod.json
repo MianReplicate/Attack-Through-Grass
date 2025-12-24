@@ -13,13 +13,14 @@
     "issues": "${issue_tracker_url}"
   },
   "license": "${mod_license}",
-  "environment": "client",
-  "entrypoints": {},
+  "environment": "*",
+  "entrypoints": {
+  },
   "mixins": [
     "${mod_id}-common.mixins.json"
   ],
   "depends": {
     "fabricloader": ">=${fabric_loader_version}",
-    "minecraft": ">=${minimum_minecraft_version}"
+    "minecraft": ">=${minimum_minecraft_version}",
   }
 }

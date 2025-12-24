@@ -1,4 +1,4 @@
-package mc.mian.atg.mixin;
+package mc.mian.attackthroughgrass.mixin;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -54,8 +54,9 @@ public class GameRendererMixin {
             // bounding box
             new AABB(start, end),
             // ensure pickable (ignoring creative mode players) and is not a vehicle that the player is in
-            EntitySelector.NO_CREATIVE_OR_SPECTATOR.and(Entity::isPickable).and(e -> !attackThroughGrass$getAllVehicles(player).contains(e))
-            );
+            EntitySelector.NO_CREATIVE_OR_SPECTATOR.and(Entity::isPickable).and(e -> !attackThroughGrass$getAllVehicles(player).contains(e)),
+                1
+        );
             
         if (entityHitResult != null) {
           // get distance to the target

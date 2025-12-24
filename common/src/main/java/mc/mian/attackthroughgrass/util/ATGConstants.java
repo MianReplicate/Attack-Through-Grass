@@ -1,4 +1,4 @@
-package mc.mian.atg.util;
+package mc.mian.attackthroughgrass.util;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

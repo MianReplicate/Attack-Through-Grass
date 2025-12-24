@@ -1,0 +1,49 @@
+apply plugin: "me.modmuss50.mod-publish-plugin"
+
+publishMods {
+    if(tasks.findByName("remapJar")){
+        file = remapJar.archiveFile
+    } else {
+        file = jar.archiveFile
+    }
+
+    changelog = new File("${rootProject.projectDir}/changelog.md").text
+    modLoaders.add("${project.name}")
+    type = STABLE
+
+    def projectName = project.name.substring(0, 1).toUpperCase() + project.name.substring(1, project.name.length())
+    if(projectName == "Neoforge")
+        projectName = "NeoForge" // NeoForge is a special name :O
+
+    displayName = "[${projectName}] ${minecraft_version} - ${mod_version}"
+
+    var CURSE_API_KEY = project.findProperty("curseforge_token")
+    curseforge {
+        accessToken = CURSE_API_KEY
+        projectId = "${curseforge_id}"
+
+        if(minecraft_version != minimum_minecraft_version){
+            minecraftVersionRange{
+                start = "${minimum_minecraft_version}"
+                end = "${minecraft_version}"
+            }
+        } else {
+            minecraftVersions.add(minecraft_version)
+        }
+    }
+
+    var MODRINTH_TOKEN = project.findProperty("modrinth_token")
+    modrinth {
+        accessToken = MODRINTH_TOKEN
+        projectId = "${modrinth_id}"
+
+        if(minecraft_version != minimum_minecraft_version){
+            minecraftVersionRange{
+                start = "${minimum_minecraft_version}"
+                end = "${minecraft_version}"
+            }
+        } else {
+            minecraftVersions.add(minecraft_version)
+        }
+    }
+}
