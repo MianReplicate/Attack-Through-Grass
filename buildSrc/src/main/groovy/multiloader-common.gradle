@@ -30,19 +30,6 @@ repositories {
         }
         filter { includeGroupAndSubgroups('org.spongepowered') }
     }
-    exclusiveContent {
-        forRepositories(
-                maven {
-                    name = 'ParchmentMC'
-                    url = 'https://maven.parchmentmc.org/'
-                },
-                maven {
-                    name = "NeoForge"
-                    url = 'https://maven.neoforged.net/releases'
-                }
-        )
-        filter { includeGroup('org.parchmentmc.data') }
-    }
     maven {
         name = 'BlameJared'
         url = 'https://maven.blamejared.com'
@@ -115,7 +102,8 @@ processResources {
             forge_version_range : forge_version_range,
             forge_version: forge_version,
             forge_loader_version_range: forge_loader_version_range,
-            minimum_minecraft_version: minimum_minecraft_version
+            maximum_minecraft_version: maximum_minecraft_version,
+            fabric_api_version: fabric_api_version
     ]
 
     var jsonExpandProps = expandProps.collectEntries {

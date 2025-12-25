@@ -39,7 +39,6 @@ pluginManagement {
                 includeGroupAndSubgroups('net.minecraftforge')
             }
         }
-        maven { url = 'https://maven.parchmentmc.org' }
         gradlePluginPortal()
         mavenCentral()
     }

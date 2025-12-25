@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module version="4">
+  <component name="AdditionalModuleElements">
+    <content url="file://$MODULE_DIR$/../../../forge/build/generated/sources/annotationProcessor/java/main">
+      <sourceFolder url="file://$MODULE_DIR$/../../../forge/build/generated/sources/annotationProcessor/java/main" isTestSource="false" generated="true" />
+    </content>
+  </component>
   <component name="FacetManager">
     <facet type="minecraft" name="Minecraft">
       <configuration>
@@ -13,8 +18,8 @@
     </facet>
   </component>
   <component name="McpModuleSettings">
-    <option name="mappingFile" value="$MODULE_DIR$/../../../forge/build/createMcpToSrg/output.tsrg" />
-    <option name="mcpVersion" value="parchment_1.21.6-2025.06.29-1.21.6" />
+    <option name="mappingFile" value="C:\Users\Administrator\IdeaProjects\Attack-Through-Grass\forge\build\createMcpToSrg\output.tsrg" />
+    <option name="mcpVersion" value="official_1.21.6" />
     <option name="minecraftVersion" value="1.21.6" />
     <option name="platformVersion" value="56.0.9" />
     <option name="srgType" value="TSRG" />

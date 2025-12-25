@@ -8,3 +8,9 @@
 *build
 *run
 *runs
+/.gradle/
+/.idea/
+/neoforge/.gradle/
+/forge/.gradle/
+/fabric/.gradle/
+/common/.gradle/

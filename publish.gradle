@@ -15,17 +15,17 @@ publishMods {
     if(projectName == "Neoforge")
         projectName = "NeoForge" // NeoForge is a special name :O
 
-    displayName = "[${projectName}] ${minecraft_version} - ${mod_version}"
+    displayName = maximum_minecraft_version != minecraft_version ? "[${projectName} ${mod_version}] ${minecraft_version}-${maximum_minecraft_version}" : "[${projectName} ${mod_version}] ${minecraft_version}"
 
     var CURSE_API_KEY = project.findProperty("curseforge_token")
     curseforge {
         accessToken = CURSE_API_KEY
         projectId = "${curseforge_id}"
 
-        if(minecraft_version != minimum_minecraft_version){
+        if(minecraft_version != maximum_minecraft_version){
             minecraftVersionRange{
-                start = "${minimum_minecraft_version}"
-                end = "${minecraft_version}"
+                start = "${minecraft_version}"
+                end = "${maximum_minecraft_version}"
             }
         } else {
             minecraftVersions.add(minecraft_version)
@@ -37,10 +37,10 @@ publishMods {
         accessToken = MODRINTH_TOKEN
         projectId = "${modrinth_id}"
 
-        if(minecraft_version != minimum_minecraft_version){
+        if(minecraft_version != maximum_minecraft_version){
             minecraftVersionRange{
-                start = "${minimum_minecraft_version}"
-                end = "${minecraft_version}"
+                start = "${minecraft_version}"
+                end = "${maximum_minecraft_version}"
             }
         } else {
             minecraftVersions.add(minecraft_version)

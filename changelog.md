@@ -1,3 +1,3 @@
-# Version 2.0.3
+# Version 2.1.0
 ## Changes:
-- Fixed a bug relating to hitting through a solid block if a transparent block was in front
+- When installed on the server, the mod will now disable for all clients involved
