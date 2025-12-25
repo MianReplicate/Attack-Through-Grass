@@ -5,7 +5,6 @@
 /build/
 /fabric/runs/
 /neoforge/run/
-*.gradle
 *build
 *run
 *runs
