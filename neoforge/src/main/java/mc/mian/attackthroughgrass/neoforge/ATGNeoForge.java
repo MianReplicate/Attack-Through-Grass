@@ -13,6 +13,7 @@ import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.entity.player.PlayerEvent;
 import net.neoforged.neoforge.network.PacketDistributor;
 import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
+import net.neoforged.neoforge.network.registration.NetworkRegistry;
 import net.neoforged.neoforge.network.registration.PayloadRegistrar;
 
 @Mod(value = ATGConstants.MOD_ID, dist = Dist.DEDICATED_SERVER)
@@ -24,8 +25,8 @@ public class ATGNeoForge {
 
     @SubscribeEvent
     public static void onPlayerJoin(PlayerEvent.PlayerLoggedInEvent event){
-        boolean dedicated = event.getEntity().getServer().isDedicatedServer();
-        if(!event.getEntity().level().isClientSide() && dedicated)
+        boolean dedicated = event.getEntity().level().getServer().isDedicatedServer();
+        if(!event.getEntity().level().isClientSide() && dedicated && NetworkRegistry.hasChannel(((ServerPlayer) event.getEntity()).connection, DisableModS2CPayload.TYPE.id()))
             PacketDistributor.sendToPlayer((ServerPlayer) event.getEntity(), new DisableModS2CPayload());
         else if(!dedicated)
             ATGConfig.IS_DISABLED = false;

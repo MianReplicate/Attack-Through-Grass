@@ -22,6 +22,10 @@ publishMods {
         accessToken = CURSE_API_KEY
         projectId = "${curseforge_id}"
 
+        if(project.name == "fabric"){
+            requires("fabric-api")
+        }
+
         if(minecraft_version != maximum_minecraft_version){
             minecraftVersionRange{
                 start = "${minecraft_version}"
@@ -36,6 +40,10 @@ publishMods {
     modrinth {
         accessToken = MODRINTH_TOKEN
         projectId = "${modrinth_id}"
+
+        if(project.name == "fabric"){
+            requires("fabric-api")
+        }
 
         if(minecraft_version != maximum_minecraft_version){
             minecraftVersionRange{

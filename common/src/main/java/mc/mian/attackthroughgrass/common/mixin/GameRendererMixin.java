@@ -24,8 +24,6 @@ import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
 
-// TODO: bug where if the mob is in the same block, this doesn't seem to pick it up?
-
 @Mixin(GameRenderer.class)
 public class GameRendererMixin {
 	@ModifyExpressionValue(method = "pick(F)V", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/renderer/GameRenderer;pick(Lnet/minecraft/world/entity/Entity;DDF)Lnet/minecraft/world/phys/HitResult;"))
@@ -61,7 +59,7 @@ public class GameRendererMixin {
                 new AABB(start, end),
                 // ensure pickable (ignoring creative mode players) and is not a vehicle that the player is in
                 EntitySelector.NO_CREATIVE_OR_SPECTATOR.and(Entity::isPickable).and(e -> !attackThroughGrass$getAllVehicles(player).contains(e)),
-                    1
+                    ProjectileUtil.DEFAULT_ENTITY_HIT_RESULT_MARGIN
             );
 
             if (entityHitResult != null) {

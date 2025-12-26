@@ -12,10 +12,12 @@ public class ATGFabric implements ModInitializer {
     public void onInitialize() {
         PayloadTypeRegistry.playS2C().register(DisableModS2CPayload.TYPE, DisableModS2CPayload.CODEC);
         ServerPlayerEvents.JOIN.register((player) -> {
-            if(player.getServer().isDedicatedServer())
-                ServerPlayNetworking.send(player, new DisableModS2CPayload());
-            else
-                ATGConfig.IS_DISABLED = false;
+            if(ServerPlayNetworking.canSend(player, DisableModS2CPayload.TYPE)){
+                if(player.level().getServer().isDedicatedServer())
+                    ServerPlayNetworking.send(player, new DisableModS2CPayload());
+                else
+                    ATGConfig.IS_DISABLED = false;
+            }
         });
     }
 }

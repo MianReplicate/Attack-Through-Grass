@@ -38,7 +38,7 @@ public class ATGForge {
         CHANNEL = CHANNEL_BUILDER.bidirectional().build();
 
         PlayerEvent.PlayerLoggedInEvent.BUS.addListener((event) -> {
-            boolean dedicated = event.getEntity().getServer().isDedicatedServer();
+            boolean dedicated = event.getEntity().level().getServer().isDedicatedServer();
             if(!event.getEntity().level().isClientSide() && dedicated)
                 CHANNEL.send(new DisableModS2CPayload(), PacketDistributor.PLAYER.with((ServerPlayer) event.getEntity()));
             else if(!dedicated)
