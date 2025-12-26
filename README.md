@@ -7,7 +7,7 @@
 
 **This mod ONLY needs to be installed on the _CLIENT!_**
 
-**IF INSTALLED ON THE SERVER, THE MOD WILL BE DISABLED FOR ALL CLIENTS. (2.1.0+ ONLY)**
+**INSTALLING ON THE SERVER OPTS OUT THE MOD FOR ALL CLIENTS. (2.1.0+ ONLY)**
 
 **The content in this page only applies to mod versions marked as 2.0.0 & higher. Versions below may be buggy and only support Fabric!**
 
