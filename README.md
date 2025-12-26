@@ -7,7 +7,7 @@
 
 **This mod ONLY needs to be installed on the _CLIENT!_**
 
-<font color="red">With the above being known, note that this can be considered cheating on some servers. Inquire a higher up about the use of this mod before using it!</font>
+**IF INSTALLED ON THE SERVER, THE MOD WILL BE DISABLED FOR ALL CLIENTS. (2.1.0+ ONLY)**
 
 **The content in this page only applies to mod versions marked as 2.0.0 & higher. Versions below may be buggy and only support Fabric!**
 
@@ -16,7 +16,7 @@
 ## 🤔 Why should you choose this over other similar mods?
 - Always up to date with latest versions of Minecraft.
 - Available on all popular modloaders!
-- No dependencies needed at all, drop and play
+- No dependencies needed at all for Forge and NeoForge, drop and play
 - As mentioned above, it's a client side mod! No need for the server owner to download the mod.
   - As said earlier however, this can be considered **cheating**, so ensure that you inquire a higher up beforehand.
 - Minimal amount of code and not intrusive (The mod is one mixin with one inject method)
@@ -29,6 +29,8 @@
   - You likely missed your attack or on an outdated version of the mod. 2.0.2+ versions of the mod have a line of code to delay the player from accidentally breaking a block only if they hit an entity.
 - Will the mod work for versions of Minecraft not listed?
   - Usually yes for mod versions 2.+ and Minecraft versions 1.20.5+. The mod is made with almost little to no code which makes it automatically compatible with most upcoming versions of the game (including snapshots!). If you find that the mod does not work, report it to [GitHub](https://github.com/MianReplicate/Attack-Through-Grass)!
+- Can I opt out of this mod on my server? (2.1.0+ ONLY)
+  - Yes! Just download the mod onto your server, and the server-sided code will disable the mod's client side functionality for everyone else using it.
 
 ## 👏 Credits
-- Thanks to Jeryn99 for code used.
+- Thanks to Alexandra and Jeryn99 for code used.
