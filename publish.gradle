@@ -3,6 +3,8 @@ apply plugin: "me.modmuss50.mod-publish-plugin"
 publishMods {
     if(tasks.findByName("remapJar")){
         file = remapJar.archiveFile
+    } else if(tasks.findByName("jarJar") && project.name == "forge"){
+        file = tasks.jarJar.archiveFile
     } else {
         file = jar.archiveFile
     }
