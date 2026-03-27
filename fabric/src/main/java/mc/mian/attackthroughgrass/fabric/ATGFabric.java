@@ -10,7 +10,7 @@ import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 public class ATGFabric implements ModInitializer {
     @Override
     public void onInitialize() {
-        PayloadTypeRegistry.playS2C().register(DisableModS2CPayload.TYPE, DisableModS2CPayload.CODEC);
+        PayloadTypeRegistry.clientboundPlay().register(DisableModS2CPayload.TYPE, DisableModS2CPayload.CODEC);
         ServerPlayerEvents.JOIN.register((player) -> {
             if(ServerPlayNetworking.canSend(player, DisableModS2CPayload.TYPE)){
                 if(player.level().getServer().isDedicatedServer())

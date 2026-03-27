@@ -8,9 +8,18 @@
           <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.github.llamalad7/mixinextras-common/0.4.1/a7f425cc49de7f10d008a9a676f5f023ebac13bb/mixinextras-common-0.4.1.jar" />
         </processorPath>
         <module name="Attack_Through_Grass.common.main" />
+      </profile>
+      <profile name="Gradle Imported" enabled="true">
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/net.minecraftforge/eventbus-validator/7.0-beta.15/e9362df287d758afad24cb6a1b03ff6edb0475a9/eventbus-validator-7.0-beta.15.jar" />
+          <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.github.llamalad7/mixinextras-common/0.4.1/a7f425cc49de7f10d008a9a676f5f023ebac13bb/mixinextras-common-0.4.1.jar" />
+          <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/net.minecraftforge/eventbus/7.0-beta.15/2f580120cb6856bd2ec2f5a6782574d4892829aa/eventbus-7.0-beta.15.jar" />
+          <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jspecify/jspecify/1.0.0/7425a601c1c7ec76645a78d22b8c6a627edee507/jspecify-1.0.0.jar" />
+        </processorPath>
         <module name="Attack_Through_Grass.forge.main" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel target="21" />
+    <bytecodeTargetLevel target="25" />
   </component>
 </project>
